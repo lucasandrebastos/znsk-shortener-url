@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY . /app
 
+RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
-CMD ["java", "-jar", "target/znsk-shortener-url-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/seu-projeto-0.0.1-SNAPSHOT.jar"]
