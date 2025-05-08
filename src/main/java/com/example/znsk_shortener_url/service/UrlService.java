@@ -31,7 +31,7 @@ public class UrlService {
         }
         repository.save(link);
 
-        return "http://localhost:8080/" + code;
+        return "http://znsk.com/" + code;
     }
 
     public String getOriginalUrl(String code) {
