@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 
 @Entity
 @Getter
@@ -22,5 +24,10 @@ public class UrlMapping {
 
     @Column(nullable = false)
     private String originalUrl;
+
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
+
+    private LocalDateTime expiresAt;
 
 }

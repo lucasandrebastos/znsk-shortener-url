@@ -18,7 +18,7 @@ public class UrlController {
 
     @PostMapping("/shorten")
     public ResponseEntity<String> shorten(@RequestBody RequestDto requestDto) {
-        String shortUrl = urlService.shortenUrl(requestDto.originalUrl());
+        String shortUrl = urlService.shortenUrl(requestDto.originalUrl(), requestDto.expireInHours());
         return ResponseEntity.ok(shortUrl);
     }
 
@@ -26,7 +26,15 @@ public class UrlController {
     public ResponseEntity<Void> redirect(@PathVariable String code) {
 
         String originalUrl = urlService.getOriginalUrl(code);
+        boolean isExpired = urlService.isExpired(code);
+
         if (originalUrl != null) {
+            if(isExpired){
+                urlService.deleteById(code);
+                return ResponseEntity.status(HttpStatus.GONE).build();
+            }
+
+
             return ResponseEntity.status(HttpStatus.FOUND)
                     .location(URI.create(originalUrl))
                     .build();
