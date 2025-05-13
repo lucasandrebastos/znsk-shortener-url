@@ -31,7 +31,7 @@ public class UrlService {
         }
         repository.save(link);
 
-        return "https://znsk-shortener-url.onrender.com/" + code;
+        return "https://znsk-shortener-url-production.up.railway.app" + code;
     }
 
     public String getOriginalUrl(String code) {
