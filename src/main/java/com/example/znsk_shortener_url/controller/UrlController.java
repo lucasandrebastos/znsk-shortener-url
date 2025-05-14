@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173", methods = {RequestMethod.GET, RequestMethod.POST})
+@CrossOrigin(origins = "https://znskshortener.vercel.app/", methods = {RequestMethod.GET, RequestMethod.POST})
 public class UrlController {
 
     @Autowired
