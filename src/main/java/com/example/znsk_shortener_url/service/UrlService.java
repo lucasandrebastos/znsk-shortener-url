@@ -44,7 +44,7 @@ public class UrlService {
 
         repository.save(link);
 
-        return "https://znsk-shortener-url-production.up.railway.app/" + code;
+        return "https://znskshortener.up.railway.app/" + code;
     }
 
     public String getOriginalUrl(String code) {
