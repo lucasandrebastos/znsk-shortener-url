@@ -18,7 +18,7 @@ public class UrlController {
 
     @PostMapping("/shorten")
     public ResponseEntity<String> shorten(@RequestBody RequestDto requestDto) {
-        String shortUrl = urlService.shortenUrl(requestDto.originalUrl(), requestDto.expireInHours());
+        String shortUrl = urlService.shortenUrl(requestDto.originalUrl(), requestDto.expires());
         return ResponseEntity.ok(shortUrl);
     }
 

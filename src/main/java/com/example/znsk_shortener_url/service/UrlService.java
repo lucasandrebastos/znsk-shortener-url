@@ -15,8 +15,7 @@ public class UrlService {
 
     private final Random random = new Random();
 
-
-    public String shortenUrl(String originalUrl, Integer expiresInHours) {
+    public String shortenUrl(String originalUrl, String expires) {
         String code;
         do {
             code = generateCode();
@@ -26,9 +25,23 @@ public class UrlService {
         link.setCode(code);
         link.setOriginalUrl(originalUrl);
         link.setCreatedAt(LocalDateTime.now());
-        if(expiresInHours != null){
-            link.setExpiresAt(LocalDateTime.now().plusHours(expiresInHours));
+
+        switch (expires){
+            case "1h":
+                link.setExpiresAt(LocalDateTime.now().plusHours(1));
+                break ;
+            case "1d":
+                link.setExpiresAt(LocalDateTime.now().plusHours(24));
+                break;
+            case "7d":
+                link.setExpiresAt(LocalDateTime.now().plusHours(168));
+                break;
+            case "30d":
+                link.setExpiresAt(LocalDateTime.now().plusHours(720));
+                break;
         }
+
+
         repository.save(link);
 
         return "https://znsk-shortener-url-production.up.railway.app/" + code;
