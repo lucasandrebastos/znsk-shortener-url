@@ -13,7 +13,7 @@ import java.net.URI;
 
 @CrossOrigin(
         origins = {
-                "https://znsk.uk",
+                "https://www.znsk.uk",
                 "https://go.znsk.uk"
         },
         methods = {RequestMethod.GET, RequestMethod.POST}
