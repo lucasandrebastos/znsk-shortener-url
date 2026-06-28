@@ -10,7 +10,15 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 
 @RestController
-@CrossOrigin(origins = "https://znsk.uk/", methods = {RequestMethod.GET, RequestMethod.POST})
+
+@CrossOrigin(
+        origins = {
+                "https://znsk.uk",
+                "https://go.znsk.uk"
+        },
+        methods = {RequestMethod.GET, RequestMethod.POST}
+)
+
 public class UrlController {
 
     @Autowired
